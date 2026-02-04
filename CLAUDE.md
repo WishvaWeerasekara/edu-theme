@@ -1,0 +1,1 @@
+/home/wishva/Projects/Practice/Shopify/edu-theme/AGENTS.md
