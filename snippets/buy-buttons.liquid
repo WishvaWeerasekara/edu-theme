@@ -103,6 +103,7 @@
         </div>
       {%- endform -%}
     </product-form>
+    {%- render 'product-out-of-stock-options', product: product -%}
   {%- else -%}
     <div class="product-form">
       <div class="product-form__buttons form">

@@ -1,0 +1,87 @@
+{% doc %}
+  Renders a list of out-of-stock option values (e.g. colors, sizes) below the Add to Cart button.
+  Only shows for products with variants; groups unavailable values by option name.
+
+  @param {product} product - The product object.
+
+  @example
+  {% render 'product-out-of-stock-options', product: product %}
+{% enddoc %}
+{%- liquid
+  if product.has_only_default_variant
+    assign show_oos = false
+  else
+    assign oos_variants = product.variants | where: 'available', false
+    if oos_variants.size == 0
+      assign show_oos = false
+    else
+      assign show_oos = true
+      assign options_with_values = product.options_with_values
+      assign oos1_str = ''
+      assign oos2_str = ''
+      assign oos3_str = ''
+      for v in oos_variants
+        if v.option1 != blank
+          assign oos1_str = oos1_str | append: v.option1 | append: '^^^'
+        endif
+        if v.option2 != blank
+          assign oos2_str = oos2_str | append: v.option2 | append: '^^^'
+        endif
+        if v.option3 != blank
+          assign oos3_str = oos3_str | append: v.option3 | append: '^^^'
+        endif
+      endfor
+      assign oos1_arr = oos1_str | split: '^^^' | uniq | compact
+      assign oos2_arr = oos2_str | split: '^^^' | uniq | compact
+      assign oos3_arr = oos3_str | split: '^^^' | uniq | compact
+    endif
+  endif
+-%}
+{%- if show_oos -%}
+  <div class="product-out-of-stock-options" data-product-out-of-stock-options>
+    <p class="product-out-of-stock-options__heading caption">
+      {{ 'products.product.out_of_stock_options.heading' | t }}
+    </p>
+    <ul class="product-out-of-stock-options__list list-unstyled caption" role="list">
+      {%- if options_with_values.size > 0 and oos1_arr.size > 0 -%}
+        <li class="product-out-of-stock-options__item">
+          <span class="product-out-of-stock-options__option-name">{{ options_with_values[0].name }}:</span>
+          {{ oos1_arr | join: ', ' }}
+        </li>
+      {%- endif -%}
+      {%- if options_with_values.size > 1 and oos2_arr.size > 0 -%}
+        <li class="product-out-of-stock-options__item">
+          <span class="product-out-of-stock-options__option-name">{{ options_with_values[1].name }}:</span>
+          {{ oos2_arr | join: ', ' }}
+        </li>
+      {%- endif -%}
+      {%- if options_with_values.size > 2 and oos3_arr.size > 0 -%}
+        <li class="product-out-of-stock-options__item">
+          <span class="product-out-of-stock-options__option-name">{{ options_with_values[2].name }}:</span>
+          {{ oos3_arr | join: ', ' }}
+        </li>
+      {%- endif -%}
+    </ul>
+  </div>
+  <style>
+    .product-out-of-stock-options {
+      margin-top: 1.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(var(--color-foreground), 0.12);
+    }
+    .product-out-of-stock-options__heading {
+      margin: 0 0 0.4rem 0;
+      font-weight: 600;
+    }
+    .product-out-of-stock-options__list {
+      margin: 0;
+      padding: 0;
+    }
+    .product-out-of-stock-options__item {
+      margin-top: 0.2rem;
+    }
+    .product-out-of-stock-options__option-name {
+      font-weight: 500;
+    }
+  </style>
+{%- endif -%}
