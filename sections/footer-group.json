@@ -14,10 +14,6 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "shop_shop_login_button_app_block_HC7VfV": {
-          "type": "shopify://apps/shop/blocks/shop-login-button-app-block/7cab7c4a-1dfc-4b7e-8e53-31f104f2fa4e",
-          "settings": {}
-        },
         "55172ef6-3a6a-4cfa-b790-88739b47891f": {
           "type": "link_list",
           "settings": {
@@ -40,7 +36,6 @@
         }
       },
       "block_order": [
-        "shop_shop_login_button_app_block_HC7VfV",
         "55172ef6-3a6a-4cfa-b790-88739b47891f",
         "6e0c08d4-cd4c-439c-b5e2-a483bba29ec2",
         "f95fe295-fbc2-4d2b-a952-72670c2ab328"
