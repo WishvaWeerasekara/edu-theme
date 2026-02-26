@@ -3147,3 +3147,19 @@ details-disclosure > details {
     100% { transform: rotate(360deg) translateX(1em) rotate(-360deg) scale(1.2); }
   }
 }
+.hero-section {
+  position: relative;
+  text-align: center;
+}
+
+.hero-section .content-wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.cta-btn {
+  padding: 12px 24px;
+  border: 2px solid;
+}
