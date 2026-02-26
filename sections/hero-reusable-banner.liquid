@@ -60,7 +60,19 @@
       </div>
 
       {% if section.settings.show_box %}
-        </div>
+        {% assign opacity = section.settings.box_opacity | divided_by: 100.0 %}
+        <div
+          class="content-box"
+          style="
+              background-color:
+              {% if section.settings.box_color == 'black' %}
+                rgba(0,0,0,{{ opacity }})
+              {% else %}
+                rgba(255,255,255,{{ opacity }})
+              {% endif %}
+            ;
+          "
+        ></div>
       {% endif %}
     </div>
   {% endif %}
