@@ -1,3 +1,5 @@
+{{ 'section-hero-reusable-banner.css' | asset_url | stylesheet_tag }}
+
 <section class="hero-section">
   <!-- MEDIA -->
   <div class="hero-media">
@@ -18,65 +20,64 @@
   </div>
 
   <!-- CONTENT -->
-  {% if section.blocks.size > 0 %}
-    <div class="content-wrapper align-{{ section.settings.content_alignment }} text-{{ section.settings.text_color }} {% if section.settings.text_shadow %}text-shadow{% endif %}">
-      {% if section.settings.show_box %}
-        <div
-          class="content-box box-{{ section.settings.box_color }}"
-          style="background-color: rgba(0,0,0,{{ section.settings.box_opacity | divided_by: 100.0 }});"
-        >
-      {% endif %}
-
-      {% for block in section.blocks %}
-        <div class="hero-block">
-          {% if block.settings.heading != blank %}
-            <h2>{{ block.settings.heading }}</h2>
-          {% endif %}
-          {% if block.settings.text != blank %}
-            <p>{{ block.settings.text }}</p>
-          {% endif %}
-        </div>
-      {% endfor %}
-
-      <!-- CTAs -->
-      <div class="cta-wrapper">
-        {% if section.settings.cta_1_text != blank %}
-          <a
-            href="{{ section.settings.cta_1_link }}"
-            class="cta-btn border-{{ section.settings.cta_border_color }} text-{{ section.settings.cta_text_color }}"
-          >
-            {{ section.settings.cta_1_text }}
-          </a>
-        {% endif %}
-
-        {% if section.settings.cta_2_text != blank %}
-          <a
-            href="{{ section.settings.cta_2_link }}"
-            class="cta-btn border-{{ section.settings.cta_border_color }} text-{{ section.settings.cta_text_color }}"
-          >
-            {{ section.settings.cta_2_text }}
-          </a>
-        {% endif %}
-      </div>
-
+  {% if section.blocks.size > 0 or section.settings.cta_1_text != blank or section.settings.cta_2_text != blank %}
+    <div class="content-wrapper align-{{ section.settings.content_alignment }}">
       {% if section.settings.show_box %}
         {% assign opacity = section.settings.box_opacity | divided_by: 100.0 %}
         <div
-          class="content-box"
+          class="content-box box-{{ section.settings.box_color }}"
           style="
-              background-color:
-              {% if section.settings.box_color == 'black' %}
-                rgba(0,0,0,{{ opacity }})
-              {% else %}
-                rgba(255,255,255,{{ opacity }})
-              {% endif %}
-            ;
+            background-color: 
+            {% if section.settings.box_color == 'black' %}
+              rgba(0,0,0,{{ opacity }})
+            {% else %}
+              rgba(255,255,255,{{ opacity }})
+            {% endif %};
           "
-        ></div>
+        >
+      {% endif %}
+
+        <div class="hero-content text-{{ section.settings.text_color }} {% if section.settings.text_shadow %}text-shadow{% endif %}">
+          {% for block in section.blocks %}
+            <div class="hero-block" {{ block.shopify_attributes }}>
+              {% if block.settings.heading != blank %}
+                <h2 class="hero-heading">{{ block.settings.heading }}</h2>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <p class="hero-text">{{ block.settings.text }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+          <!-- CTAs -->
+          <div class="cta-wrapper">
+            {% if section.settings.cta_1_text != blank and section.settings.cta_1_link != blank %}
+              <a
+                href="{{ section.settings.cta_1_link }}"
+                class="cta-btn border-{{ section.settings.cta_border_color }} text-{{ section.settings.cta_text_color }}"
+              >
+                {{ section.settings.cta_1_text }}
+              </a>
+            {% endif %}
+
+            {% if section.settings.cta_2_text != blank and section.settings.cta_2_link != blank %}
+              <a
+                href="{{ section.settings.cta_2_link }}"
+                class="cta-btn border-{{ section.settings.cta_border_color }} text-{{ section.settings.cta_text_color }}"
+              >
+                {{ section.settings.cta_2_text }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+
+      {% if section.settings.show_box %}
+        </div>
       {% endif %}
     </div>
   {% endif %}
 </section>
+
 {% schema %}
 {
   "name": "Reusable Hero Banner",
