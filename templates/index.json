@@ -258,6 +258,29 @@
       ],
       "name": "FAQ accordion",
       "settings": {}
+    },
+    "hero_reusable_banner_xXxD64": {
+      "type": "hero-reusable-banner",
+      "name": "Reusable Hero Banner",
+      "settings": {
+        "media_type": "image",
+        "hero_image": "shopify://shop_images/hero.png",
+        "video_url": "",
+        "text_color": "white",
+        "text_shadow": false,
+        "content_alignment": "center",
+        "show_box": true,
+        "box_color": "black",
+        "box_opacity": 60,
+        "dark_overlay": false,
+        "overlay_opacity": 10,
+        "cta_1_link": "",
+        "cta_1_text": "TEST",
+        "cta_2_link": "",
+        "cta_2_text": "",
+        "cta_border_color": "white",
+        "cta_text_color": "white"
+      }
     }
   },
   "order": [
@@ -266,6 +289,7 @@
     "f1552b18-6017-4231-810d-74e61da22c37",
     "38cdf60f-e431-43b5-aac3-7e6215447d67",
     "image_banner_azMLQV",
-    "blocks_Hh6eiD"
+    "blocks_Hh6eiD",
+    "hero_reusable_banner_xXxD64"
   ]
 }
