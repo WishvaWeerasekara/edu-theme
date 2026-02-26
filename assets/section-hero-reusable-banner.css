@@ -67,6 +67,8 @@
   border-radius: 4px;
   max-width: 600px;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .content-wrapper.align-left .content-box {
@@ -91,6 +93,8 @@
 
 .hero-content {
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .content-wrapper.align-left .hero-content {
@@ -108,14 +112,18 @@
 /* Text Colors */
 .hero-content.text-white,
 .hero-content.text-white h2,
-.hero-content.text-white p {
-  color: #ffffff;
+.hero-content.text-white p,
+.hero-content.text-white .hero-heading,
+.hero-content.text-white .hero-text {
+  color: #ffffff !important;
 }
 
 .hero-content.text-black,
 .hero-content.text-black h2,
-.hero-content.text-black p {
-  color: #0c0c0c;
+.hero-content.text-black p,
+.hero-content.text-black .hero-heading,
+.hero-content.text-black .hero-text {
+  color: #0c0c0c !important;
 }
 
 /* Text Shadow */
@@ -137,10 +145,16 @@
 /* Hero Block Styles */
 .hero-block {
   margin-bottom: 1.5rem;
+  display: block;
+  visibility: visible;
 }
 
 .hero-block:last-child {
   margin-bottom: 0;
+}
+
+.hero-block:empty {
+  display: none;
 }
 
 .hero-heading {
@@ -148,12 +162,16 @@
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 1rem 0;
+  display: block;
+  visibility: visible;
 }
 
 .hero-text {
   font-size: 1.125rem;
   line-height: 1.6;
   margin: 0;
+  display: block;
+  visibility: visible;
 }
 
 @media screen and (max-width: 749px) {
@@ -185,6 +203,15 @@
   transition: all 0.3s ease;
   border: 2px solid;
   background: transparent;
+  cursor: pointer;
+}
+
+.cta-btn[href] {
+  cursor: pointer;
+}
+
+.cta-btn:not([href]) {
+  cursor: default;
 }
 
 /* CTA Border Colors */
