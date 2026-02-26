@@ -284,7 +284,7 @@
         "show_box": true,
         "box_color": "black",
         "box_opacity": 100,
-        "dark_overlay": true,
+        "dark_overlay": false,
         "overlay_opacity": 100,
         "cta_1_link": "",
         "cta_1_text": "Button 1",
