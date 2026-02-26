@@ -287,9 +287,9 @@
         "dark_overlay": false,
         "overlay_opacity": 55,
         "cta_1_link": "",
-        "cta_1_text": "lkjlkjlkjlkj",
+        "cta_1_text": "Button 1",
         "cta_2_link": "",
-        "cta_2_text": "jhkhkhkhkjhkkjhnkjh",
+        "cta_2_text": "Button 2",
         "cta_border_color": "white",
         "cta_text_color": "white"
       }
