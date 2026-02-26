@@ -261,6 +261,18 @@
     },
     "hero_reusable_banner_xXxD64": {
       "type": "hero-reusable-banner",
+      "blocks": {
+        "content_dTncjX": {
+          "type": "content",
+          "settings": {
+            "heading": "What is Lorem Ipsum?",
+            "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+          }
+        }
+      },
+      "block_order": [
+        "content_dTncjX"
+      ],
       "name": "Reusable Hero Banner",
       "settings": {
         "media_type": "image",
@@ -271,13 +283,13 @@
         "content_alignment": "center",
         "show_box": true,
         "box_color": "black",
-        "box_opacity": 60,
+        "box_opacity": 100,
         "dark_overlay": false,
-        "overlay_opacity": 10,
+        "overlay_opacity": 55,
         "cta_1_link": "",
-        "cta_1_text": "TEST",
+        "cta_1_text": "lkjlkjlkjlkj",
         "cta_2_link": "",
-        "cta_2_text": "",
+        "cta_2_text": "jhkhkhkhkjhkkjhnkjh",
         "cta_border_color": "white",
         "cta_text_color": "white"
       }
