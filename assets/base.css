@@ -3149,17 +3149,29 @@ details-disclosure > details {
 }
 .hero-section {
   position: relative;
-  text-align: center;
 }
 
-.hero-section .content-wrapper {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+.hero-media {
+  position: relative;
+}
+
+.hero-image {
+  display: block;
   width: 100%;
 }
 
-.cta-btn {
-  padding: 12px 24px;
-  border: 2px solid;
+.content-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: black;
+  z-index: 1;
 }
