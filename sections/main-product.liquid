@@ -167,6 +167,20 @@
                 <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                   {{ product.description }}
                 </div>
+                {% if product.metafields.custom.care_guide.value %}
+                  {% assign guide = product.metafields.custom.care_guide.value %}
+
+                  <div class="care-guide">
+                    <h3>{{ guide.title }}</h3>
+
+                    {% if guide.icon %}
+                      <img src="{{ guide.icon | image_url }}" alt="{{ guide.title }}">
+                    {% endif %}
+
+                    <p>{{ guide.description }}</p>
+                  </div>
+
+                {% endif %}
               {%- endif -%}
             {%- when 'sku' -%}
               <p
